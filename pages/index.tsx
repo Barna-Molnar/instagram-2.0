@@ -10,8 +10,6 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <h1>This is the INSTAGRAM 2 BUILD </h1>
-
       <Header />
 
       {/* Feed */}
