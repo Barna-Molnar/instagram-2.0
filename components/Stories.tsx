@@ -4,49 +4,25 @@ import Story from './Story';
 
 export interface StoriesProps {
 };
-
-interface Suggestion {
-    name: string;
+interface SuggestionsData {
     username: string;
     avatar: string;
-    email: string;
-    dob: Date;
-    phone: string;
-    address: Address;
-    website: string;
-    company: Company;
     id: number;
-}
-
-interface Company {
-    name: string;
-    catchPhrase: string;
-    bs: string;
-}
-
-interface Address {
-    street: string;
-    suite: string;
-    city: string;
-    zipcode: string;
-    geo: Geo;
-}
-
-interface Geo {
-    lat: string;
-    lng: string;
 }
 
 const Stories: FC<StoriesProps> = (props) => {
 
-    const [suggestions, setSuggestions] = useState<Array<Suggestion>>([])
+    const [suggestions, setSuggestions] = useState<Array<SuggestionsData>>([])
 
+    console.log(suggestions);
     useEffect(() => {
         const fakeSuggestionsData = [...Array(20)].map((_, i) => ({
-            ...faker.helpers.contextualCard(),
+            username: faker.name.findName(),
+            avatar: faker.image.avatar(),
             id: i
         }))
         setSuggestions(fakeSuggestionsData)
+
 
     }, []);
 
