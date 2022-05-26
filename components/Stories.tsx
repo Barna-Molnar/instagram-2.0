@@ -14,7 +14,6 @@ const Stories: FC<StoriesProps> = (props) => {
 
     const [suggestions, setSuggestions] = useState<Array<SuggestionsData>>([])
 
-    console.log(suggestions);
     useEffect(() => {
         const fakeSuggestionsData = [...Array(20)].map((_, i) => ({
             username: faker.name.findName(),
@@ -22,7 +21,6 @@ const Stories: FC<StoriesProps> = (props) => {
             id: i
         }))
         setSuggestions(fakeSuggestionsData)
-
 
     }, []);
 
