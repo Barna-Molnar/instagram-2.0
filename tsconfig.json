@@ -24,7 +24,8 @@
     "**/*.ts",
     "**/*.tsx",
     "pages/api/auth/[...nextauth].ts",
-    "pages/auth/signin.ts"
+    "pages/auth/signin.ts",
+    "pages/auth/signin.jsx"
   ],
   "exclude": [
     "node_modules"
