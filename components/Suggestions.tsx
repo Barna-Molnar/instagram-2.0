@@ -3,7 +3,7 @@ import { useUsers } from '../customHooks/useSuggestions'
 
 const Suggestions = () => {
 
-    const { suggestedUsers } = useUsers(5)
+    const { suggestedUsers } = useUsers(10)
 
     return (
         <div className='mt-4 ml-10'>
@@ -29,8 +29,6 @@ const Suggestions = () => {
                             <h3 className='text-xs text-gray-400'>Works at: {user.companyName}</h3>
                         </div>
                         <button className='text-xs text-blue-400 font-bold'>Follow</button>
-
-
                     </div>
                 ))
             }

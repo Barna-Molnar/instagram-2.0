@@ -1,7 +1,7 @@
 import faker from "@faker-js/faker";
 import { useEffect, useState } from "react";
 
-interface SuggestionsData {
+interface User {
     username: string;
     avatar: string;
     companyName: string;
@@ -10,7 +10,7 @@ interface SuggestionsData {
 
 export const useUsers = (numberOfSuggestion: number) => {
 
-    const [suggestedUsers, setSuggestedUsers] = useState<Array<SuggestionsData>>([])
+    const [suggestedUsers, setSuggestedUsers] = useState<Array<User>>([])
 
     console.log(suggestedUsers)
     useEffect(() => {
