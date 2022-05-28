@@ -23,7 +23,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "pages/api/auth/[...nextauth].ts",
+    "pages/api/auth/[...nextauth].js",
     "pages/auth/signin.ts",
     "pages/auth/signin.jsx"
   ],

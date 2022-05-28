@@ -13,7 +13,7 @@ const MiniProfile = () => {
                 className='rounded-full border p-[2px] w-16 h-16'
             />
             <div className='flex-1 mx-4'>
-                <h2 className='font-bold'>{session.data?.user?.name}</h2>
+                <h2 className='font-bold'>{session.data?.user?.username}</h2>
                 <h3 className='text-sm text-gray-400'>Welcome to instagramm</h3>
             </div>
             <button
