@@ -1,9 +1,13 @@
 import type { NextPage } from 'next'
+import { useSession } from 'next-auth/react'
 import Head from 'next/head'
 import Feed from '../components/Feed'
 import Header from '../components/Header'
 
 const Home: NextPage = () => {
+
+  const session = useSession();
+  console.log('home:', session)
   return (
     <div className="bg-gray-50 h-screen overflow-y-scroll scrollbar-hide">
       <Head>
@@ -11,10 +15,18 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Header />
-      <Feed />
-
-      {/* Modal */}
+      {
+        session.status === 'authenticated'
+          ? (
+            <>
+              <Header />
+              <Feed />
+              {/* Modal */}
+            </>
+          ) : (
+            <Header />
+          )
+      }
     </div>
   )
 }
