@@ -8,9 +8,11 @@ import {
     PaperAirplaneIcon,
     MenuIcon
 } from '@heroicons/react/outline'
-
 import { HomeIcon } from '@heroicons/react/solid';
 import { useSession, signIn, signOut } from 'next-auth/react';
+import { useRouter } from 'next/router';
+import { useRecoilState } from 'recoil';
+import { modalState } from '../atoms/modalAtoms'
 
 export interface HeaderProps { };
 
@@ -18,20 +20,28 @@ export interface HeaderProps { };
 const Header: FC<HeaderProps> = (props) => {
 
     const { data: session } = useSession();
+    const router = useRouter()
+    const [open, setOpen] = useRecoilState(modalState)
 
     console.log({ session })
     return (
         <div className='shadow-sm border-b bg-white sticky top-0 z-50'>
             <div className='flex justify-between bg-white max-w-6xl mx-5 xl:mx-auto'>
 
-                <div className='relative hidden lg:inline-grid w-24 cursor-pointer'>
+                <div
+                    className='relative hidden lg:inline-grid w-24 cursor-pointer'
+                    onClick={() => router.push('/')}
+                >
                     <Image
                         src='https://links.papareact.com/ocw'
                         layout='fill'
                         objectFit='contain'
                     />
                 </div>
-                <div className='relative inline-grid lg:hidden flex-shrink-0 w-10 cursor-pointer'>
+                <div
+                    className='relative inline-grid lg:hidden flex-shrink-0 w-10 cursor-pointer'
+                    onClick={() => router.push('/')}
+                >
                     <Image
                         src='https://links.papareact.com/jjm'
                         layout='fill'
@@ -52,7 +62,10 @@ const Header: FC<HeaderProps> = (props) => {
                 </div>
                 <div className='flex items-center justify-end space-x-4'>
                     <MenuIcon className='h-6 md:hidden cursor-pointer' />
-                    <HomeIcon className='navBtn' />
+                    <HomeIcon
+                        className='navBtn'
+                        onClick={() => router.push('/')}
+                    />
                     {
                         session ? (
                             <>
@@ -62,7 +75,10 @@ const Header: FC<HeaderProps> = (props) => {
                                     </div>
                                     <PaperAirplaneIcon className='navBtn' />
                                 </div>
-                                <PlusCircleIcon className='navBtn' />
+                                <PlusCircleIcon
+                                    className='navBtn'
+                                    onClick={() => setOpen(true)}
+                                />
                                 <UserGroupIcon className='navBtn' />
                                 <HeartIcon className='navBtn' />
                                 <img

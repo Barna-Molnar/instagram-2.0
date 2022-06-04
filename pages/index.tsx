@@ -3,6 +3,7 @@ import { useSession } from 'next-auth/react'
 import Head from 'next/head'
 import Feed from '../components/Feed'
 import Header from '../components/Header'
+import Modal from '../components/Modal'
 
 const Home: NextPage = () => {
 
@@ -21,7 +22,7 @@ const Home: NextPage = () => {
             <>
               <Header />
               <Feed />
-              {/* Modal */}
+              <Modal />
             </>
           ) : (
             <Header />
